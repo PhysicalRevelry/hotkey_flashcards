@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:async';
+// import 'dart:async';
 
 class HotkeyFlashCards extends StatefulWidget {
   HotkeyFlashCards();
@@ -37,16 +37,16 @@ class _HotkeyFlashCardsState extends State<HotkeyFlashCards> {
     if (key.runtimeType != RawKeyUpEvent) {
       return;
     }
-    if (key.data is! RawKeyEventDataMacOs){
+    if (key.data is! RawKeyEventDataMacOs) {
       return;
     }
     final event = key.data as RawKeyEventDataMacOs;
-    print('key: ${event.physicalKey}, control: ${event.isControlPressed}, alt: ${event.isAltPressed}, meta: ${event.isMetaPressed}');
+    print(
+        'key: ${event.physicalKey}, control: ${event.isControlPressed}, alt: ${event.isAltPressed}, meta: ${event.isMetaPressed}');
 
     RawKeyEventDataMacOs data = key.data as RawKeyEventDataMacOs;
     String _keyCode;
     _keyCode = data.keyCode.toString(); //keycode of key event (66 is return)
-
   }
 
   _buildTextComposer() {
