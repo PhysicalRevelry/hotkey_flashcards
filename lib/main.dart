@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotkey_flashcards/screens/desktop.dart';
+import 'package:hotkey_flashcards/screens/reference_code.dart';
 
 void main() {
   runApp(MyApp());
