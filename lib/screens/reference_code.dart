@@ -34,7 +34,7 @@ class _HotkeyFlashCardsState extends State<HotkeyFlashCards> {
   // }
 
   handleKey(RawKeyEvent key) {
-    if (key.runtimeType != RawKeyUpEvent) {
+    if (key.runtimeType == RawKeyUpEvent) {
       return;
     }
     if (key.data is! RawKeyEventDataMacOs) {
@@ -42,7 +42,7 @@ class _HotkeyFlashCardsState extends State<HotkeyFlashCards> {
     }
     final event = key.data as RawKeyEventDataMacOs;
     print(
-        'key: ${event.physicalKey}, control: ${event.isControlPressed}, alt: ${event.isAltPressed}, meta: ${event.isMetaPressed}');
+        'key: ${event.physicalKey.debugName}, control: ${event.isControlPressed}, alt: ${event.isAltPressed}, meta: ${event.isMetaPressed}, shift: ${event.isShiftPressed}');
 
     RawKeyEventDataMacOs data = key.data as RawKeyEventDataMacOs;
     String _keyCode;
