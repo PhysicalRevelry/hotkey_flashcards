@@ -11,6 +11,7 @@ class FlashCards extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final flashCard = useProvider(stateProvider);
+    HotKey testKey;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -40,14 +41,17 @@ class FlashCards extends HookWidget {
                 RawKeyboardListener(
                   focusNode: flashCard.textNode,
                   onKey: (key) {
-                    var testKey = flashCard.handleKey(key);
+                    testKey = flashCard.handleKey(key);
+                    if (testKey != null) {
+                      showResult(testKey, context);
+                    }
                   },
                   child: TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                     ),
                     onSubmitted: (key) {
-                      showResult(testKey, context);
+                      // showResult(testKey, context);
                     },
                   ),
                 ),

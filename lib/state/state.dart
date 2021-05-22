@@ -35,11 +35,19 @@ class State extends ChangeNotifier {
       return;
     }
     final event = key.data as RawKeyEventDataMacOs;
+
     print(
         'key: ${event.physicalKey.debugName}, control: ${event.isControlPressed}, alt: ${event.isAltPressed}, meta: ${event.isMetaPressed}, shift: ${event.isShiftPressed}');
 
+    HotKey testKey = createTestHotKey(event);
+    return testKey;
+    // return event;
+  }
+
+  HotKey createTestHotKey(RawKeyEventDataMacOs event){
+    HotKey testHotKey;
     if (!isMetaKey(event.physicalKey.debugName)) {
-      final testHotKey = HotKey(
+      testHotKey = HotKey(
           label: 'Tester',
           description: 'to test against',
           keyName: event.physicalKey.debugName,
@@ -47,8 +55,9 @@ class State extends ChangeNotifier {
           control: event.isControlPressed,
           meta: event.isMetaPressed,
           shift: event.isShiftPressed);
-      return testHotKey;
+      // return testHotKey;
     }
+    return testHotKey;
   }
 
   bool isMetaKey(String key) {
