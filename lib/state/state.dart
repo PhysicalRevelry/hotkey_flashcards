@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hotkey_flashcards/hotkeys/hotkeys.dart';
@@ -37,24 +38,62 @@ class State extends ChangeNotifier {
     print(
         'key: ${event.physicalKey.debugName}, control: ${event.isControlPressed}, alt: ${event.isAltPressed}, meta: ${event.isMetaPressed}, shift: ${event.isShiftPressed}');
 
-    if (event.physicalKey.debugName != ){
-
+    if (!isMetaKey(event.physicalKey.debugName)) {
+      final testHotKey = HotKey(
+          label: 'Tester',
+          description: 'to test against',
+          keyName: event.physicalKey.debugName,
+          alt: event.isAltPressed,
+          control: event.isControlPressed,
+          meta: event.isMetaPressed,
+          shift: event.isShiftPressed);
+      return testHotKey;
     }
-
-    // final testHotKey = HotKey(
-    //     label: 'Tester',
-    //     description: 'to test against',
-    //     keyName: event.physicalKey.debugName,
-    //     alt: event.isAltPressed,
-    //     control: event.isControlPressed,
-    //     meta: event.isMetaPressed,
-    //     shift: event.isShiftPressed);
-    // return testHotKey;
   }
 
-  createTestHotKey(){
-
+  bool isMetaKey(String key) {
+    switch (key) {
+      case "Meta Right":
+        {
+          return true;
+        }
+        break;
+      case "Meta Left":
+        {
+          return true;
+        }
+        break;
+      case "Alt Left":
+        {
+          return true;
+        }
+        break;
+      case "Alt Right":
+        {
+          return true;
+        }
+        break;
+      case "Control Left":
+        {
+          return true;
+        }
+        break;
+      case "Control Right":
+        {
+          return true;
+        }
+        break;
+      case "Shift Right":
+        {
+          return true;
+        }
+        break;
+      case "Shift Left":
+        {
+          return true;
+        }
+        break;
+    }
+    return false;
   }
 }
-
-// Meta Right, Meta Left, Alt Right, Alt Left, Control Right, Control Left, Shift Right, Shift Left,
