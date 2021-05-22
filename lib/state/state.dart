@@ -12,7 +12,7 @@ final stateProvider = ChangeNotifierProvider<State>((ref) {
 });
 
 class State extends ChangeNotifier {
-  final textController = TextEditingController();
+  // final textController = TextEditingController();
   FocusNode textNode = FocusNode();
 
   // returning a random HotKey to test from the list. Currently cast as a string.
@@ -36,27 +36,29 @@ class State extends ChangeNotifier {
     }
     final event = key.data as RawKeyEventDataMacOs;
 
-    print(
-        'key: ${event.physicalKey.debugName}, control: ${event.isControlPressed}, alt: ${event.isAltPressed}, meta: ${event.isMetaPressed}, shift: ${event.isShiftPressed}');
+    HotKey keyedHotKey;
 
-    HotKey testKey = createTestHotKey(event);
-    return testKey;
-    // return event;
+    if (!isMetaKey(event.physicalKey.debugName)) {
+      keyedHotKey = createTestHotKey(event);
+    } else {
+      return;
+    }
+    print("You got your test hot key right here: ${keyedHotKey.label}, "
+        "\n debug name: ${keyedHotKey.keyName} "
+        "\n is alt pressed? ${keyedHotKey.alt} "
+        "\n is control pressed? ${keyedHotKey.control} "
+        "\n is meta pressed? ${keyedHotKey.meta}");
   }
 
-  HotKey createTestHotKey(RawKeyEventDataMacOs event){
-    HotKey testHotKey;
-    if (!isMetaKey(event.physicalKey.debugName)) {
-      testHotKey = HotKey(
-          label: 'Tester',
-          description: 'to test against',
-          keyName: event.physicalKey.debugName,
-          alt: event.isAltPressed,
-          control: event.isControlPressed,
-          meta: event.isMetaPressed,
-          shift: event.isShiftPressed);
-      // return testHotKey;
-    }
+  HotKey createTestHotKey(RawKeyEventDataMacOs event) {
+    HotKey testHotKey = HotKey(
+        label: 'Tester',
+        description: 'to test against',
+        keyName: event.physicalKey.debugName,
+        alt: event.isAltPressed,
+        control: event.isControlPressed,
+        meta: event.isMetaPressed,
+        shift: event.isShiftPressed);
     return testHotKey;
   }
 
