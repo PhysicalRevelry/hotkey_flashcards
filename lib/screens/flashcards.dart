@@ -30,7 +30,7 @@ class FlashCards extends HookWidget {
                 children: [
                   Text("What's the hot key for this function?"),
                   Text(
-                      'This will be the HotKey name: ${flashCard.selectHotKey()}'),
+                      'This will be the HotKey name: ${flashCard.target.label}'),
                   Text(
                     'ENTER YOUR HOTKEY',
                     style: TextStyle(
@@ -38,7 +38,13 @@ class FlashCards extends HookWidget {
                       fontSize: 42,
                     ),
                   ),
-                  isCorrect() ? CorrectWidget() : WrongWidget(),
+                  Text(flashCard.keyedHotKey.label != null
+                      ? flashCard.keyedHotKey.keyName
+                      : "Null"),
+                  // flashCard.isRightHotKey(
+                  //         flashCard.target, flashCard.keyedHotKey)
+                  //     ? CorrectWidget()
+                  //     : WrongWidget(),
                 ],
               ),
             ),

@@ -12,18 +12,20 @@ final stateProvider = ChangeNotifierProvider<State>((ref) {
 });
 
 class State extends ChangeNotifier {
-  // final textController = TextEditingController();
   FocusNode textNode = FocusNode();
+  HotKey target;
+  HotKey keyedHotKey;
 
   // returning a random HotKey to test from the list. Currently cast as a string.
-  String selectHotKey() {
+  selectHotKey() {
     var rand = Random();
     HotKey newKeyToTest = listOfHotKeys[rand.nextInt(listOfHotKeys.length)];
     print(
         "Next hot key is ${newKeyToTest.label} at index ${rand.nextInt(listOfHotKeys.length)}");
     print(
         "Label for HotKey: ${newKeyToTest.label}, description: ${newKeyToTest.description}");
-    return newKeyToTest.label;
+    target = keyedHotKey;
+    notifyListeners();
   }
 
   // Parsing the keystrokes
@@ -36,8 +38,6 @@ class State extends ChangeNotifier {
     }
     final event = key.data as RawKeyEventDataMacOs;
 
-    HotKey keyedHotKey;
-
     if (!isMetaKey(event.physicalKey.debugName)) {
       keyedHotKey = createTestHotKey(event);
     } else {
@@ -48,6 +48,23 @@ class State extends ChangeNotifier {
         "\n is alt pressed? ${keyedHotKey.alt} "
         "\n is control pressed? ${keyedHotKey.control} "
         "\n is meta pressed? ${keyedHotKey.meta}");
+    return keyedHotKey;
+  }
+
+  bool isRightHotKey(HotKey target, HotKey test) {
+    if (target.keyName != test.keyName) {
+      return false;
+    } else if (target.meta != test.meta) {
+      return false;
+    } else if (target.control != test.control) {
+      return false;
+    } else if (target.alt != test.alt) {
+      return false;
+    } else if (target.shift != test.shift) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   HotKey createTestHotKey(RawKeyEventDataMacOs event) {
