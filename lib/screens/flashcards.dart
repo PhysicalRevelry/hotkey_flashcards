@@ -58,7 +58,3 @@ class FlashCards extends HookWidget {
     );
   }
 }
-
-bool isCorrect() {
-  return true;
-}

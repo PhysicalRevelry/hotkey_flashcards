@@ -54,7 +54,7 @@ class State extends ChangeNotifier {
   }
 
   bool isRightHotKey(HotKey target, HotKey test) {
-    if (target == null) {
+    if (test == null || target == null) {
       return false;
     } else if (target.keyName != test.keyName) {
       return false;
