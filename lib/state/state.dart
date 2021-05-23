@@ -24,7 +24,7 @@ class State extends ChangeNotifier {
         "Next hot key is ${newKeyToTest.label} at index ${rand.nextInt(listOfHotKeys.length)}");
     print(
         "Label for HotKey: ${newKeyToTest.label}, description: ${newKeyToTest.description}");
-    target = keyedHotKey;
+    target = newKeyToTest;
     notifyListeners();
   }
 
@@ -40,6 +40,7 @@ class State extends ChangeNotifier {
 
     if (!isMetaKey(event.physicalKey.debugName)) {
       keyedHotKey = createTestHotKey(event);
+      notifyListeners();
     } else {
       return;
     }
@@ -47,12 +48,15 @@ class State extends ChangeNotifier {
         "\n debug name: ${keyedHotKey.keyName} "
         "\n is alt pressed? ${keyedHotKey.alt} "
         "\n is control pressed? ${keyedHotKey.control} "
-        "\n is meta pressed? ${keyedHotKey.meta}");
+        "\n is meta pressed? ${keyedHotKey.meta}"
+        "\n is shift pressed? ${keyedHotKey.shift}");
     return keyedHotKey;
   }
 
   bool isRightHotKey(HotKey target, HotKey test) {
-    if (target.keyName != test.keyName) {
+    if (target == null) {
+      return false;
+    } else if (target.keyName != test.keyName) {
       return false;
     } else if (target.meta != test.meta) {
       return false;

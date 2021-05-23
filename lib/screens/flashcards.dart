@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hotkey_flashcards/state/state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-// import 'package:hotkey_flashcards/widgets/alert_dialog.dart';
+import 'package:hotkey_flashcards/widgets/show_key_stroke.dart';
 import 'package:hotkey_flashcards/widgets/correct.dart';
 import 'package:hotkey_flashcards/widgets/wrong.dart';
 
@@ -28,9 +28,15 @@ class FlashCards extends HookWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("What's the hot key for this function?"),
-                  Text(
-                      'This will be the HotKey name: ${flashCard.target.label}'),
+                  TextButton(
+                      onPressed: () => flashCard.selectHotKey(),
+                      child: Text('Get Started')), //TODO Make this a widget
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(flashCard.target == null
+                      ? " "
+                      : "${flashCard.target.label}\n\n${flashCard.target.description}"), //TODO Also a widget
                   Text(
                     'ENTER YOUR HOTKEY',
                     style: TextStyle(
@@ -38,13 +44,11 @@ class FlashCards extends HookWidget {
                       fontSize: 42,
                     ),
                   ),
-                  Text(flashCard.keyedHotKey.label != null
-                      ? flashCard.keyedHotKey.keyName
-                      : "Null"),
-                  // flashCard.isRightHotKey(
-                  //         flashCard.target, flashCard.keyedHotKey)
-                  //     ? CorrectWidget()
-                  //     : WrongWidget(),
+                  // flashCard.keyedHotKey != null ? ShowKeyStrokes() : Text(" "),
+                  flashCard.isRightHotKey(
+                          flashCard.target, flashCard.keyedHotKey)
+                      ? CorrectWidget()
+                      : WrongWidget(),
                 ],
               ),
             ),
