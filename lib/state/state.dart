@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -127,5 +129,13 @@ class State extends ChangeNotifier {
         break;
     }
     return false;
+  }
+
+  Timer timer;
+  exchangeWidget(){
+    timer = Timer(const Duration(seconds: 3), (){
+      selectHotKey();
+      keyedHotKey = null;
+    });
   }
 }
