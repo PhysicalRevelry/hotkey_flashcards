@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hotkey_flashcards/state/state.dart';
+import 'package:hotkey_flashcards/widgets/growing_icon.dart';
 
 class WrongWidget extends HookWidget {
   const WrongWidget({Key key}) : super(key: key);
@@ -12,10 +13,9 @@ class WrongWidget extends HookWidget {
     return Container(
       child: Column(
         children: [
-          Icon(
-            Icons.clear,
+          GrowingIcon(
+            icon: Icons.clear,
             color: Colors.red,
-            size: 86,
           ),
           Text(
             'You keyed: ',
