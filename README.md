@@ -1,16 +1,16 @@
-# hotkey_flashcards
+# InteliJ HotKey Flashcards
 
-A new Flutter project.
+I've been using InteliJ IDEs for a couple of years now and decided I wanted to be more efficient with the hotkeys to make the experience smoother and faster. As a way to drill in and become faster with hotkey usage, I am making this Flutter desktop app.
 
-## Getting Started
+### Things I still need to work on:
 
-This project is a starting point for a Flutter application.
+- Lots of formatting things
+    - Keep prompts in same place regardless of Correct/Wrong widget
+    - Taking away the "Get Started" button after the initial press
+    - Formatting the prompts
+- Increase the number of HotKeys in the list
+- Refactoring some code to make it more modular and easier to read and reuse
+- Research the difference in hotkeys between OS version and Windows versions of InteliJ
+-
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
