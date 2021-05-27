@@ -73,6 +73,20 @@ class State extends ChangeNotifier {
     }
   }
 
+  newHotKey(RawKeyEvent key) {
+    if (key.runtimeType != RawKeyUpEvent) {
+      return;
+    }
+    if (key.data is! RawKeyEventDataMacOs) {
+      return;
+    }
+    final event = key.data as RawKeyEventDataMacOs;
+
+    if (event.physicalKey.debugName == "Enter") {
+      selectHotKey();
+    }
+  }
+
   HotKey createTestHotKey(RawKeyEventDataMacOs event) {
     HotKey testHotKey = HotKey(
         label: 'Tester',
@@ -132,8 +146,8 @@ class State extends ChangeNotifier {
   }
 
   Timer timer;
-  exchangeWidget(){
-    timer = Timer(const Duration(seconds: 3), (){
+  exchangeWidget() {
+    timer = Timer(const Duration(seconds: 3), () {
       selectHotKey();
       keyedHotKey = null;
     });

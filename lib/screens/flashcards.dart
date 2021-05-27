@@ -5,6 +5,7 @@ import 'package:hotkey_flashcards/state/state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hotkey_flashcards/widgets/choose_verdict.dart';
+import 'package:hotkey_flashcards/widgets/get_started_button.dart';
 
 class FlashCards extends HookWidget {
   const FlashCards({Key key}) : super(key: key);
@@ -26,9 +27,11 @@ class FlashCards extends HookWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(
-                      onPressed: () => flashCard.selectHotKey(),
-                      child: Text('Get Started')),
+                  flashCard.target == null
+                      ? GetStartedButton()
+                      : SizedBox(
+                          height: 36,
+                        ),
                   //TODO Make this a widget
                   SizedBox(
                     height: 30,
