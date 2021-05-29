@@ -36,7 +36,6 @@ class _GrowingIconState extends State<GrowingIcon>
     return Container(
       child: ScaleTransition(
         scale: _animation,
-        // alignment: Alignment.center,
         child: Icon(
           widget.icon,
           color: widget.color,
@@ -47,27 +46,3 @@ class _GrowingIconState extends State<GrowingIcon>
   }
 }
 
-// class GrowingIcon extends StatelessWidget {
-//   const GrowingIcon({
-//     Key key,
-//     @required this.ticker,
-//     @required double size,
-//   }) : _size = size, super(key: key);
-//
-//   final TickerProvider ticker;
-//   final double _size;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return AnimatedSize(
-//       curve: Curves.bounceIn,
-//       duration: Duration(seconds: 5),
-//       vsync: ticker,
-//       child: Icon(
-//         Icons.check,
-//         color: Colors.green,
-//         size: _size,
-//       ),
-//     );
-//   }
-// }
