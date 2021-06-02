@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-// import 'package:hotkey_flashcards/hotkeys/hotkeys.dart';
 import 'package:hotkey_flashcards/state/state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -27,12 +25,6 @@ class FlashCards extends HookWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  flashCard.target == null
-                      ? GetStartedButton()
-                      : SizedBox(
-                          height: 36,
-                        ),
-                  //TODO Make this a widget
                   SizedBox(
                     height: 30,
                   ),

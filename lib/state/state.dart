@@ -55,6 +55,7 @@ class State extends ChangeNotifier {
     return keyedHotKey;
   }
 
+  // Testing the entered key combo against the target combo
   bool isRightHotKey(HotKey target, HotKey test) {
     if (test == null || target == null) {
       return false;
@@ -73,17 +74,18 @@ class State extends ChangeNotifier {
     }
   }
 
-  newHotKey(RawKeyEvent key) {
-    if (key.runtimeType != RawKeyUpEvent) {
-      return;
-    }
-    if (key.data is! RawKeyEventDataMacOs) {
-      return;
-    }
+  //
+  getStarted(RawKeyEvent key, BuildContext context) {
+    // if (key.runtimeType != RawKeyUpEvent) {
+    //   return;
+    // }
+    // if (key.data is! RawKeyEventDataMacOs) {
+    //   return;
+    // }
     final event = key.data as RawKeyEventDataMacOs;
 
-    if (event.physicalKey.debugName == "Enter") {
-      selectHotKey();
+    if (event.physicalKey.debugName == "Enter" || event.physicalKey.debugName == "Numpad Enter" ) {
+      Navigator.pushNamed(context, "/flashcards");
     }
   }
 

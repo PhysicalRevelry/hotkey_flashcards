@@ -13,7 +13,7 @@ class VerdictWidget extends HookWidget {
   // I want the verdict (right vs wrong icon) to not show if there is no key stroke yet
   Widget build(BuildContext context) {
     final flashCard = useProvider(stateProvider);
-    return                   flashCard.keyedHotKey == null
+    return flashCard.keyedHotKey == null || flashCard.target == null
         ? SizedBox( height: 2,)
         : flashCard.isRightHotKey(
         flashCard.target, flashCard.keyedHotKey)
