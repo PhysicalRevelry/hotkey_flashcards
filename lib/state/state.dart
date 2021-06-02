@@ -93,7 +93,7 @@ class State extends ChangeNotifier {
     HotKey testHotKey = HotKey(
         label: 'Tester',
         description: 'to test against',
-        keyName: event.physicalKey.debugName,
+        keyName: event.physicalKey.debugName!,
         alt: event.isAltPressed,
         control: event.isControlPressed,
         meta: event.isMetaPressed,
@@ -101,48 +101,40 @@ class State extends ChangeNotifier {
     return testHotKey;
   }
 
-  bool isMetaKey(String key) {
+  bool isMetaKey(String? key) {
     switch (key) {
       case "Meta Right":
         {
           return true;
         }
-        break;
       case "Meta Left":
         {
           return true;
         }
-        break;
       case "Alt Left":
         {
           return true;
         }
-        break;
       case "Alt Right":
         {
           return true;
         }
-        break;
       case "Control Left":
         {
           return true;
         }
-        break;
       case "Control Right":
         {
           return true;
         }
-        break;
       case "Shift Right":
         {
           return true;
         }
-        break;
       case "Shift Left":
         {
           return true;
         }
-        break;
     }
     return false;
   }
