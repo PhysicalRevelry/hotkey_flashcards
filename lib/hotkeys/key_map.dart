@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'hotkeys.dart';
 
 final commitCode = HotKey(

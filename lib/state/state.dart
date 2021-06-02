@@ -15,8 +15,8 @@ final stateProvider = ChangeNotifierProvider<State>((ref) {
 
 class State extends ChangeNotifier {
   FocusNode textNode = FocusNode();
-  HotKey target;
-  HotKey keyedHotKey;
+  late HotKey? target;
+  late HotKey? keyedHotKey;
 
   // returning a random HotKey to test from the list. Currently cast as a string.
   selectHotKey() {
@@ -46,12 +46,12 @@ class State extends ChangeNotifier {
     } else {
       return;
     }
-    print("You got your test hot key right here: ${keyedHotKey.label}, "
-        "\n debug name: ${keyedHotKey.keyName} "
-        "\n is alt pressed? ${keyedHotKey.alt} "
-        "\n is control pressed? ${keyedHotKey.control} "
-        "\n is meta pressed? ${keyedHotKey.meta}"
-        "\n is shift pressed? ${keyedHotKey.shift}");
+    print("You got your test hot key right here: ${keyedHotKey!.label}, "
+        "\n debug name: ${keyedHotKey!.keyName} "
+        "\n is alt pressed? ${keyedHotKey!.alt} "
+        "\n is control pressed? ${keyedHotKey!.control} "
+        "\n is meta pressed? ${keyedHotKey!.meta}"
+        "\n is shift pressed? ${keyedHotKey!.shift}");
     return keyedHotKey;
   }
 
@@ -147,7 +147,7 @@ class State extends ChangeNotifier {
     return false;
   }
 
-  Timer timer;
+  late Timer timer;
   exchangeWidget() {
     timer = Timer(const Duration(seconds: 3), () {
       selectHotKey();

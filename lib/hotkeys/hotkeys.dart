@@ -10,9 +10,9 @@ class HotKey {
   final bool shift;
 
   HotKey({
-    @required this.label,
-    @required this.description,
-    @required this.keyName,
+    required this.label,
+    required this.description,
+    required this.keyName,
     this.control = false,
     this.alt = false,
     this.meta = false,

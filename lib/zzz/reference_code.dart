@@ -44,9 +44,9 @@ class _HotkeyFlashCardsState extends State<HotkeyFlashCards> {
     print(
         'key: ${event.physicalKey.debugName}, control: ${event.isControlPressed}, alt: ${event.isAltPressed}, meta: ${event.isMetaPressed}, shift: ${event.isShiftPressed}');
 
-    RawKeyEventDataMacOs data = key.data as RawKeyEventDataMacOs;
-    String _keyCode;
-    _keyCode = data.keyCode.toString(); //keycode of key event (66 is return)
+    // RawKeyEventDataMacOs data = key.data as RawKeyEventDataMacOs;
+    // String _keyCode;
+    // String _keyCode = data.keyCode.toString(); //keycode of key event (66 is return)
   }
 
   _buildTextComposer() {

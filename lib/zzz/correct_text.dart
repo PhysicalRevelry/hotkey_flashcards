@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class WrongText extends StatelessWidget {
-  const WrongText({Key key}) : super(key: key);
+class CorrectText extends StatelessWidget {
+  const CorrectText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

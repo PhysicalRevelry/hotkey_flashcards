@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GrowingIcon extends StatefulWidget {
-  const GrowingIcon({Key key, this.icon, this.color}) : super(key: key);
+  const GrowingIcon({Key? key, required this.icon, required this.color}) : super(key: key);
 
   final IconData icon;
   final Color color;
@@ -12,8 +12,8 @@ class GrowingIcon extends StatefulWidget {
 
 class _GrowingIconState extends State<GrowingIcon>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _animation;
+  late AnimationController _controller;
+  late Animation<double> _animation;
 
   @override
   void initState() {

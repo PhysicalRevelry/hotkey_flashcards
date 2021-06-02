@@ -5,7 +5,7 @@ import 'package:hotkey_flashcards/state/state.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class GetStartedButton extends HookWidget {
-  const GetStartedButton({Key key}) : super(key: key);
+  const GetStartedButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
