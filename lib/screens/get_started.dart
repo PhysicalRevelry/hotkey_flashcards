@@ -19,7 +19,7 @@ class GetStarted extends HookWidget {
           flashCard.getStarted(key, context);
           flashCard.selectHotKey();
         },
-        child: GetStartedButton(),
+        child: Center(child: GetStartedButton()),
       ),
     );
   }
