@@ -19,4 +19,3 @@ class HotKey {
     this.shift = false,
   });
 }
-

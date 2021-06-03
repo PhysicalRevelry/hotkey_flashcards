@@ -24,6 +24,13 @@ class FlashCards extends HookWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text(
+                    'ENTER YOUR HOTKEY',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 42,
+                    ),
+                  ),
                   SizedBox(
                     height: 30,
                   ),
@@ -33,14 +40,7 @@ class FlashCards extends HookWidget {
                         : "${flashCard.target!.label}\n\n${flashCard.target!.description}",
                     textAlign: TextAlign.center,
                   ),
-                  //TODO Also a widget
-                  Text(
-                    'ENTER YOUR HOTKEY',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 42,
-                    ),
-                  ),
+                  //TODO Also a widget,
                   VerdictWidget(),
                 ],
               ),

@@ -16,7 +16,7 @@ final stateProvider = ChangeNotifierProvider<State>((ref) {
 class State extends ChangeNotifier {
   FocusNode textNode = FocusNode();
   late HotKey? target;
-  late HotKey? keyedHotKey;
+  HotKey keyedHotKey = HotKey(label: "", description: "", keyName: "");
 
   // returning a random HotKey to test from the list. Currently cast as a string.
   selectHotKey() {
@@ -46,12 +46,12 @@ class State extends ChangeNotifier {
     } else {
       return;
     }
-    print("You got your test hot key right here: ${keyedHotKey!.label}, "
-        "\n debug name: ${keyedHotKey!.keyName} "
-        "\n is alt pressed? ${keyedHotKey!.alt} "
-        "\n is control pressed? ${keyedHotKey!.control} "
-        "\n is meta pressed? ${keyedHotKey!.meta}"
-        "\n is shift pressed? ${keyedHotKey!.shift}");
+    print("You got your test hot key right here: ${keyedHotKey.label}, "
+        "\n debug name: ${keyedHotKey.keyName} "
+        "\n is alt pressed? ${keyedHotKey.alt} "
+        "\n is control pressed? ${keyedHotKey.control} "
+        "\n is meta pressed? ${keyedHotKey.meta}"
+        "\n is shift pressed? ${keyedHotKey.shift}");
     return keyedHotKey;
   }
 
@@ -76,15 +76,10 @@ class State extends ChangeNotifier {
 
   //
   getStarted(RawKeyEvent key, BuildContext context) {
-    // if (key.runtimeType != RawKeyUpEvent) {
-    //   return;
-    // }
-    // if (key.data is! RawKeyEventDataMacOs) {
-    //   return;
-    // }
     final event = key.data as RawKeyEventDataMacOs;
 
-    if (event.physicalKey.debugName == "Enter" || event.physicalKey.debugName == "Numpad Enter" ) {
+    if (event.physicalKey.debugName == "Enter" ||
+        event.physicalKey.debugName == "Numpad Enter") {
       Navigator.pushNamed(context, "/flashcards");
     }
   }
@@ -143,7 +138,7 @@ class State extends ChangeNotifier {
   exchangeWidget() {
     timer = Timer(const Duration(seconds: 3), () {
       selectHotKey();
-      keyedHotKey = null;
+      keyedHotKey = HotKey(label: '', description: '', keyName: '');
     });
   }
 }
