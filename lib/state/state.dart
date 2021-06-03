@@ -15,6 +15,7 @@ final stateProvider = ChangeNotifierProvider<State>((ref) {
 
 class State extends ChangeNotifier {
   FocusNode textNode = FocusNode();
+  FocusNode startNode = FocusNode();
   late HotKey? target;
   HotKey keyedHotKey = HotKey(label: "", description: "", keyName: "");
   bool isSet = false;
@@ -23,8 +24,6 @@ class State extends ChangeNotifier {
   selectHotKey() {
     var rand = Random();
     HotKey newKeyToTest = listOfHotKeys[rand.nextInt(listOfHotKeys.length)];
-    print(
-        "Next hot key is ${newKeyToTest.label} at index ${rand.nextInt(listOfHotKeys.length)}");
     print(
         "Label for HotKey: ${newKeyToTest.label}, description: ${newKeyToTest.description}");
     target = newKeyToTest;
@@ -78,12 +77,16 @@ class State extends ChangeNotifier {
 
   //
   getStarted(RawKeyEvent key, BuildContext context) {
-    final event = key.data as RawKeyEventDataMacOs;
+    if (key.runtimeType != RawKeyUpEvent) {
+      return;
+    }
 
+    final event = key.data as RawKeyEventDataMacOs;
     if (event.physicalKey.debugName == "Enter" ||
         event.physicalKey.debugName == "Numpad Enter") {
-      Navigator.pushNamed(context, "/flashcards");
+      Navigator.pushReplacementNamed(context, "/flashcards");
     }
+    selectHotKey();
   }
 
   HotKey createTestHotKey(RawKeyEventDataMacOs event) {

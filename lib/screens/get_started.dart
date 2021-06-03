@@ -13,11 +13,10 @@ class GetStarted extends HookWidget {
 
     return Scaffold(
       body: RawKeyboardListener(
-        focusNode: flashCard.textNode,
+        focusNode: flashCard.startNode,
         autofocus: true,
         onKey: (key) {
           flashCard.getStarted(key, context);
-          flashCard.selectHotKey();
         },
         child: Center(child: GetStartedButton()),
       ),
