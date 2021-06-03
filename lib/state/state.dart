@@ -17,6 +17,7 @@ class State extends ChangeNotifier {
   FocusNode textNode = FocusNode();
   late HotKey? target;
   HotKey keyedHotKey = HotKey(label: "", description: "", keyName: "");
+  bool isSet = false;
 
   // returning a random HotKey to test from the list. Currently cast as a string.
   selectHotKey() {
@@ -42,6 +43,7 @@ class State extends ChangeNotifier {
 
     if (!isMetaKey(event.physicalKey.debugName)) {
       keyedHotKey = createTestHotKey(event);
+      isSet = true;
       notifyListeners();
     } else {
       return;
@@ -57,9 +59,9 @@ class State extends ChangeNotifier {
 
   // Testing the entered key combo against the target combo
   bool isRightHotKey(HotKey target, HotKey test) {
-    if (test == null || target == null) {
-      return false;
-    } else if (target.keyName != test.keyName) {
+    // if (test == null || target == null) { //TODO check to make sure this is no longer needed
+    //   return false;
+    if (target.keyName != test.keyName) { //removed "else" and } to comment out above
       return false;
     } else if (target.meta != test.meta) {
       return false;
@@ -139,6 +141,7 @@ class State extends ChangeNotifier {
     timer = Timer(const Duration(seconds: 3), () {
       selectHotKey();
       keyedHotKey = HotKey(label: '', description: '', keyName: '');
+      isSet = false;
     });
   }
 }

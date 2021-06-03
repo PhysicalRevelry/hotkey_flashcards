@@ -21,13 +21,13 @@ class WrongWidget extends HookWidget {
             'You keyed: ',
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ), //TODO need some styling for readability
-          Text(flashcard.keyedHotKey!.keyName),
-          flashcard.keyedHotKey!.alt ? Text("Alt") : SizedBox(height: 0),
-          flashcard.keyedHotKey!.control ? Text("Control") : SizedBox(height: 0),
-          flashcard.keyedHotKey!.meta
+          Text(flashcard.keyedHotKey.keyName),
+          flashcard.keyedHotKey.alt ? Text("Alt") : SizedBox(height: 0),
+          flashcard.keyedHotKey.control ? Text("Control") : SizedBox(height: 0),
+          flashcard.keyedHotKey.meta
               ? Text("Option/Command")
               : SizedBox(height: 0),
-          flashcard.keyedHotKey!.shift ? Text("Shift") : SizedBox(height: 0),
+          flashcard.keyedHotKey.shift ? Text("Shift") : SizedBox(height: 0),
           Text(
             'You need: ',
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
