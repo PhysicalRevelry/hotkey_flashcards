@@ -11,11 +11,11 @@ class ShowKeyStrokes extends HookWidget {
     final flashCard = useProvider(stateProvider);
     return Column(
       children: [
-        Text('Key Name: ${flashCard.keyedHotKey!.keyName}'),
-        Text('Shift: ${flashCard.keyedHotKey!.shift}'),
-        Text('Control: ${flashCard.keyedHotKey!.control}'),
-        Text('Alt: ${flashCard.keyedHotKey!.alt}'),
-        Text('Meta/Command: ${flashCard.keyedHotKey!.meta}'),
+        Text('Key Name: ${flashCard.keyedHotKey.keyName}'),
+        Text('Shift: ${flashCard.keyedHotKey.shift}'),
+        Text('Control: ${flashCard.keyedHotKey.control}'),
+        Text('Alt: ${flashCard.keyedHotKey.alt}'),
+        Text('Meta/Command: ${flashCard.keyedHotKey.meta}'),
       ],
     );
   }
