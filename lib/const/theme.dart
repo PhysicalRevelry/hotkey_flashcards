@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 final ThemeData customTheme = ThemeData(
   primaryColor: Color(0xff567c79),
   accentColor: Color(0xff432546),
-  scaffoldBackgroundColor: Color(0xffA39898),
+  scaffoldBackgroundColor: Color(0xffEAF0EA),
   fontFamily: 'Montserrat',
   buttonTheme: ButtonThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),

@@ -13,6 +13,9 @@ class FlashCards extends HookWidget {
   Widget build(BuildContext context) {
     final flashCard = useProvider(stateProvider);
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Keyboard Shortcut Flashcards'),
+      ),
       body: RawKeyboardListener(
         focusNode: flashCard.textNode,
         autofocus: true,
@@ -35,7 +38,8 @@ class FlashCards extends HookWidget {
                 ),
                 Expanded(
                   flex: 2,
-                  child: VerdictWidget(),),
+                  child: VerdictWidget(),
+                ),
               ],
             ),
           ),
