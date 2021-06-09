@@ -18,7 +18,21 @@ class GetStarted extends HookWidget {
         onKey: (key) {
           flashCard.getStarted(key, context);
         },
-        child: Center(child: GetStartedButton()),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text('Test Your Keyboard Shortcuts'),
+              Text('for'),
+              Text('Android Studio'),
+
+              /// Excel, VS Code, MS Word, general OS,
+              GetStartedButton(),
+
+              /// Will eventually have the option here to change which system you want to test
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -5,8 +5,6 @@ I've been using IntelliJ IDEs for a couple of years now and decided I wanted to 
 ### Things I still need to work on:
 
 - Lots of formatting things
-    - Keep prompts in same place regardless of Correct/Wrong widget
-    - Taking away the "Get Started" button after the initial press
     - Formatting the prompts
 - Increase the number of HotKeys in the list
 - Refactoring some code to make it more modular and easier to read and reuse
