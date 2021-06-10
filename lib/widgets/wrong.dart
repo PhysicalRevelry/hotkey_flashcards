@@ -25,21 +25,62 @@ class WrongWidget extends HookWidget {
             flashcard.keyedHotKey.keyName,
             style: Theme.of(context).textTheme.bodyText1,
           ),
-          flashcard.keyedHotKey.alt ? Text("Alt") : SizedBox(height: 0),
-          flashcard.keyedHotKey.control ? Text("Control") : SizedBox(height: 0),
-          flashcard.keyedHotKey.meta
-              ? Text("Option/Command")
+          flashcard.keyedHotKey.alt
+              ? Text(
+                  "Alt",
+                  style: Theme.of(context).textTheme.bodyText1,
+                )
               : SizedBox(height: 0),
-          flashcard.keyedHotKey.shift ? Text("Shift") : SizedBox(height: 0),
+          flashcard.keyedHotKey.control
+              ? Text(
+                  "Control",
+                  style: Theme.of(context).textTheme.bodyText1,
+                )
+              : SizedBox(height: 0),
+          flashcard.keyedHotKey.meta
+              ? Text(
+                  "Option/Command",
+                  style: Theme.of(context).textTheme.bodyText1,
+                )
+              : SizedBox(height: 0),
+          flashcard.keyedHotKey.shift
+              ? Text(
+                  "Shift",
+                  style: Theme.of(context).textTheme.bodyText1,
+                )
+              : SizedBox(height: 0),
           Text(
             'You need: ',
             style: Theme.of(context).textTheme.subtitle1,
           ), //TODO need some styling for readability
-          Text(flashcard.target!.keyName),
-          flashcard.target!.alt ? Text("Alt") : SizedBox(height: 0),
-          flashcard.target!.control ? Text("Control") : SizedBox(height: 0),
-          flashcard.target!.meta ? Text("Option/Command") : SizedBox(height: 0),
-          flashcard.target!.shift ? Text("Shift") : SizedBox(height: 0),
+          Text(
+            flashcard.target!.keyName,
+            style: Theme.of(context).textTheme.bodyText1,
+          ),
+          flashcard.target!.alt
+              ? Text(
+                  "Alt",
+                  style: Theme.of(context).textTheme.bodyText1,
+                )
+              : SizedBox(height: 0),
+          flashcard.target!.control
+              ? Text(
+                  "Control",
+                  style: Theme.of(context).textTheme.bodyText1,
+                )
+              : SizedBox(height: 0),
+          flashcard.target!.meta
+              ? Text(
+                  "Option/Command",
+                  style: Theme.of(context).textTheme.bodyText1,
+                )
+              : SizedBox(height: 0),
+          flashcard.target!.shift
+              ? Text(
+                  "Shift",
+                  style: Theme.of(context).textTheme.bodyText1,
+                )
+              : SizedBox(height: 0),
         ],
       ),
     );
