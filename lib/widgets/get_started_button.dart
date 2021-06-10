@@ -12,7 +12,10 @@ class GetStartedButton extends HookWidget {
     final flashCard = useProvider(stateProvider);
     return ElevatedButton(
       style: raisedButtonStyle,
-      onPressed: () => flashCard.selectHotKey(),
+      onPressed: () {
+        flashCard.selectHotKey();
+        Navigator.pushReplacementNamed(context, '/flashcards');
+      },
       child: Text('Get Started'),
     );
   }

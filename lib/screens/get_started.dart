@@ -20,14 +20,14 @@ class GetStarted extends HookWidget {
         },
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text('Test Your Keyboard Shortcuts Knowledge',
-              style: Theme.of(context).textTheme.headline1),
+              style: Theme.of(context).textTheme.headline1, textAlign: TextAlign.center,),
               Text('for',
+              style: Theme.of(context).textTheme.bodyText1),
+              Text('Android Studio',
               style: Theme.of(context).textTheme.subtitle1,),
-              Text('Android Studio'),
-
               /// Excel, VS Code, MS Word, general OS,
               GetStartedButton(),
 

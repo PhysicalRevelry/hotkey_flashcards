@@ -19,9 +19,12 @@ class WrongWidget extends HookWidget {
           ),
           Text(
             'You keyed: ',
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.subtitle1,
           ), //TODO need some styling for readability
-          Text(flashcard.keyedHotKey.keyName),
+          Text(
+            flashcard.keyedHotKey.keyName,
+            style: Theme.of(context).textTheme.bodyText1,
+          ),
           flashcard.keyedHotKey.alt ? Text("Alt") : SizedBox(height: 0),
           flashcard.keyedHotKey.control ? Text("Control") : SizedBox(height: 0),
           flashcard.keyedHotKey.meta
@@ -30,7 +33,7 @@ class WrongWidget extends HookWidget {
           flashcard.keyedHotKey.shift ? Text("Shift") : SizedBox(height: 0),
           Text(
             'You need: ',
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.subtitle1,
           ), //TODO need some styling for readability
           Text(flashcard.target!.keyName),
           flashcard.target!.alt ? Text("Alt") : SizedBox(height: 0),

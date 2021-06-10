@@ -16,14 +16,38 @@ class CorrectWidget extends HookWidget {
     return Container(
       child: Column(
         children: [
-          GrowingIcon(color: Colors.green, icon: Icons.check,),
-          Text(flashcard.keyedHotKey.keyName),
-          flashcard.keyedHotKey.alt ? Text("Alt") : SizedBox(height: 0),
-          flashcard.keyedHotKey.control ? Text("Control") : SizedBox(height: 0),
-          flashcard.keyedHotKey.meta
-              ? Text("Option/Command")
+          GrowingIcon(
+            color: Colors.green,
+            icon: Icons.check,
+          ),
+          Text(
+            flashcard.keyedHotKey.keyName,
+            style: Theme.of(context).textTheme.subtitle1,
+          ),
+          flashcard.keyedHotKey.alt
+              ? Text(
+                  "Alt",
+                  style: Theme.of(context).textTheme.subtitle1,
+                )
               : SizedBox(height: 0),
-          flashcard.keyedHotKey.shift ? Text("Shift") : SizedBox(height: 0),
+          flashcard.keyedHotKey.control
+              ? Text(
+                  "Control",
+                  style: Theme.of(context).textTheme.subtitle1,
+                )
+              : SizedBox(height: 0),
+          flashcard.keyedHotKey.meta
+              ? Text(
+                  "Option/Command",
+                  style: Theme.of(context).textTheme.subtitle1,
+                )
+              : SizedBox(height: 0),
+          flashcard.keyedHotKey.shift
+              ? Text(
+                  "Shift",
+                  style: Theme.of(context).textTheme.subtitle1,
+                )
+              : SizedBox(height: 0),
         ],
       ),
     );
