@@ -22,8 +22,10 @@ class GetStarted extends HookWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text('Test Your Keyboard Shortcuts'),
-              Text('for'),
+              Text('Test Your Keyboard Shortcuts Knowledge',
+              style: Theme.of(context).textTheme.headline1),
+              Text('for',
+              style: Theme.of(context).textTheme.subtitle1,),
               Text('Android Studio'),
 
               /// Excel, VS Code, MS Word, general OS,

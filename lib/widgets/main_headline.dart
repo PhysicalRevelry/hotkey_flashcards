@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MainHeadline extends HookWidget {
   const MainHeadline({Key? key}) : super(key: key);
@@ -7,11 +8,12 @@ class MainHeadline extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'ENTER YOUR HOTKEY',
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 42,
-      ),
+      'Enter Your Hotkey',
+      style: Theme.of(context).textTheme.headline1,
+      // TextStyle(
+        // fontWeight: FontWeight.bold,
+        // fontSize: 42,
+      // ),
     );
   }
 }

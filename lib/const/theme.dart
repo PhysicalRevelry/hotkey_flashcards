@@ -5,9 +5,24 @@ final ThemeData customTheme = ThemeData(
   accentColor: Color(0xff432546),
   scaffoldBackgroundColor: Color(0xffEAF0EA),
   fontFamily: 'Montserrat',
-  buttonTheme: ButtonThemeData(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-    buttonColor: Color(0xff567c79),
+  textTheme: TextTheme(
+    headline1: TextStyle(
+      fontFamily: 'alegreyaSans',
+      fontSize: 55,
+      fontWeight: FontWeight.w900,
+      color: Color(0xff432546),
+    ),
+    subtitle1: TextStyle(
+      fontFamily: 'josephineSans',
+      fontSize: 35,
+      color: Colors.black54,
+    ),
+    bodyText1: TextStyle(
+      fontFamily: 'roboto',
+      fontSize: 20,
+      color: Colors.black87,
+    )
+
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(),
 );

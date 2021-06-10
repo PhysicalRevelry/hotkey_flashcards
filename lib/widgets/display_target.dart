@@ -9,11 +9,23 @@ class DisplayTarget extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final flashCard = useProvider(stateProvider);
-    return Text(
-      flashCard.target == null
-          ? " "
-          : "${flashCard.target!.label}\n\n${flashCard.target!.description}",
-      textAlign: TextAlign.center,
+    return Column(
+      children: [
+        Text(
+          flashCard.target == null
+              ? " "
+              : "${flashCard.target!.label}",
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.subtitle1,
+        ),
+        SizedBox(height: 30,),
+        Text(flashCard.target == null
+            ? " "
+            : "${flashCard.target!.description}",
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyText1,
+        )
+      ],
     );
   }
 }
