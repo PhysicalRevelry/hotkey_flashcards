@@ -25,30 +25,11 @@ class WrongWidget extends HookWidget {
             flashcard.keyedHotKey.keyName,
             style: Theme.of(context).textTheme.bodyText1,
           ),
-          flashcard.keyedHotKey.alt
-              ? Text(
-                  "Alt",
-                  style: Theme.of(context).textTheme.bodyText1,
-                )
-              : SizedBox(height: 0),
-          flashcard.keyedHotKey.control
-              ? Text(
-                  "Control",
-                  style: Theme.of(context).textTheme.bodyText1,
-                )
-              : SizedBox(height: 0),
-          flashcard.keyedHotKey.meta
-              ? Text(
-                  "Option/Command",
-                  style: Theme.of(context).textTheme.bodyText1,
-                )
-              : SizedBox(height: 0),
-          flashcard.keyedHotKey.shift
-              ? Text(
-                  "Shift",
-                  style: Theme.of(context).textTheme.bodyText1,
-                )
-              : SizedBox(height: 0),
+          flashcard.keyNameToDisplayWrong(context: context, keyCheck: flashcard.keyedHotKey.alt, displayText: "Alt"),
+          flashcard.keyNameToDisplayWrong(context: context, keyCheck: flashcard.keyedHotKey.control, displayText: "Control"),
+          flashcard.keyNameToDisplayWrong(context: context, keyCheck: flashcard.keyedHotKey.meta, displayText: "Option/Command"),
+          flashcard.keyNameToDisplayWrong(context: context, keyCheck: flashcard.keyedHotKey.shift, displayText: "Shift"),
+
           Text(
             'You need: ',
             style: Theme.of(context).textTheme.subtitle1,
@@ -57,30 +38,10 @@ class WrongWidget extends HookWidget {
             flashcard.target!.keyName,
             style: Theme.of(context).textTheme.bodyText1,
           ),
-          flashcard.target!.alt
-              ? Text(
-                  "Alt",
-                  style: Theme.of(context).textTheme.bodyText1,
-                )
-              : SizedBox(height: 0),
-          flashcard.target!.control
-              ? Text(
-                  "Control",
-                  style: Theme.of(context).textTheme.bodyText1,
-                )
-              : SizedBox(height: 0),
-          flashcard.target!.meta
-              ? Text(
-                  "Option/Command",
-                  style: Theme.of(context).textTheme.bodyText1,
-                )
-              : SizedBox(height: 0),
-          flashcard.target!.shift
-              ? Text(
-                  "Shift",
-                  style: Theme.of(context).textTheme.bodyText1,
-                )
-              : SizedBox(height: 0),
+          flashcard.keyNameToDisplayWrong(context: context, keyCheck: flashcard.target!.alt, displayText: "Alt"),
+          flashcard.keyNameToDisplayWrong(context: context, keyCheck: flashcard.target!.control, displayText: "Control"),
+          flashcard.keyNameToDisplayWrong(context: context, keyCheck: flashcard.target!.meta, displayText: "Option/Command"),
+          flashcard.keyNameToDisplayWrong(context: context, keyCheck: flashcard.target!.shift, displayText: "Shift"),
         ],
       ),
     );

@@ -24,30 +24,35 @@ class CorrectWidget extends HookWidget {
             flashcard.keyedHotKey.keyName,
             style: Theme.of(context).textTheme.subtitle1,
           ),
-          flashcard.keyedHotKey.alt
-              ? Text(
-                  "Alt",
-                  style: Theme.of(context).textTheme.subtitle1,
-                )
-              : SizedBox(height: 0),
-          flashcard.keyedHotKey.control
-              ? Text(
-                  "Control",
-                  style: Theme.of(context).textTheme.subtitle1,
-                )
-              : SizedBox(height: 0),
-          flashcard.keyedHotKey.meta
-              ? Text(
-                  "Option/Command",
-                  style: Theme.of(context).textTheme.subtitle1,
-                )
-              : SizedBox(height: 0),
-          flashcard.keyedHotKey.shift
-              ? Text(
-                  "Shift",
-                  style: Theme.of(context).textTheme.subtitle1,
-                )
-              : SizedBox(height: 0),
+          flashcard.keyNameToDisplayRight(context: context, keyCheck: flashcard.keyedHotKey.alt, displayText: "Alt"),
+          flashcard.keyNameToDisplayRight(context: context, keyCheck: flashcard.keyedHotKey.control, displayText: "Control"),
+          flashcard.keyNameToDisplayRight(context: context, keyCheck: flashcard.keyedHotKey.meta, displayText: "Option/Command"),
+          flashcard.keyNameToDisplayRight(context: context, keyCheck: flashcard.keyedHotKey.shift, displayText: "Shift"),
+
+          // flashcard.keyedHotKey.alt
+          //     ? Text(
+          //         "Alt",
+          //         style: Theme.of(context).textTheme.subtitle1,
+          //       )
+          //     : SizedBox(height: 0),
+          // flashcard.keyedHotKey.control
+          //     ? Text(
+          //         "Control",
+          //         style: Theme.of(context).textTheme.subtitle1,
+          //       )
+          //     : SizedBox(height: 0),
+          // flashcard.keyedHotKey.meta
+          //     ? Text(
+          //         "Option/Command",
+          //         style: Theme.of(context).textTheme.subtitle1,
+          //       )
+          //     : SizedBox(height: 0),
+          // flashcard.keyedHotKey.shift
+          //     ? Text(
+          //         "Shift",
+          //         style: Theme.of(context).textTheme.subtitle1,
+          //       )
+          //     : SizedBox(height: 0),
         ],
       ),
     );

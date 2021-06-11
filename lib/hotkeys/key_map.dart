@@ -38,7 +38,7 @@ final suggestAction = HotKey(
     description:
         'Like "do the right thing," it will bring up a menu of options',
     keyName: 'Space',
-    meta: true);
+    control: true);
 final tabNavigation = HotKey(
     label: 'Tab Navigation',
     description:

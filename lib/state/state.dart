@@ -147,4 +147,29 @@ class State extends ChangeNotifier {
       isSet = false;
     });
   }
+
+  Widget keyNameToDisplayWrong(
+      {required BuildContext context, required bool keyCheck, required String displayText}){
+    if (keyCheck){
+      return Text(
+        displayText,
+        style: Theme.of(context).textTheme.bodyText1,
+      );
+    } else {
+      return SizedBox(height: 0);
+    }
+  }
+
+  Widget keyNameToDisplayRight(
+      {required BuildContext context, required bool keyCheck, required String displayText}){
+    if (keyCheck){
+      return Text(
+        displayText,
+        style: Theme.of(context).textTheme.subtitle1,
+      );
+    } else {
+      return SizedBox(height: 0);
+    }
+  }
+
 }
