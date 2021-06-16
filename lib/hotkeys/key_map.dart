@@ -6,7 +6,6 @@ final commentOut = HotKey(
         'Comments out a line or block of code or removes the comment slashes to activate commented code',
     keyName: 'Slash',
     meta: true);
-//TODO what is the keyname for the slash??
 final commitCode = HotKey(
     label: 'Commit Code',
     description: 'Git is already set up and you want to make a commit',
@@ -20,9 +19,15 @@ final completeStatement = HotKey(
     shift: true,
     meta: true);
 final doTheRightThing = HotKey(
-    label: 'Do the right thing',
+    label: 'jagdp2r!'
+        ' right thing',
     description: 'Brings up a list of potential actions',
     keyName: 'Enter',
+    meta: true);
+final duplicateLine = HotKey(
+    label: 'Duplicate Line',
+    description: 'Makes a duplicate of the selected line underneath',
+    keyName: 'Key D',
     meta: true);
 final expandEditor = HotKey(
     label: 'Expand Editor',
@@ -37,6 +42,11 @@ final fileNavigation = HotKey(
         'Opens a menu to navigate to recently open tabs or other files and folders, starting with most recent',
     keyName: 'Key E',
     meta: true);
+final findAllUsages = HotKey(
+    label: "Find All Usages",
+    description: 'Find and list all usages of a function or variable',
+    keyName: 'F7',
+    alt: true);
 final formatCode = HotKey(
     label: 'Format Code',
     description: 'Formats the code to more readable',
@@ -44,15 +54,20 @@ final formatCode = HotKey(
     alt: true,
     meta: true);
 final getDocumentation = HotKey(
-    label: 'Find Usage',
+    label: 'Track Usage/ Get Documentation',
     description:
-        'Finds variable or function usage or digs into element documentation',
+        'Finds variable or function usage or opens element documentation',
     keyName: 'Key B',
     meta: true);
 final navigateErrors = HotKey(
     label: 'Navigate Errors',
     description: 'Navigate between errors in a file',
     keyName: 'F2');
+final preferences = HotKey(
+    label: 'Preferences',
+    description: 'Opens the preferences menu',
+    keyName: 'Comma',
+    meta: true);
 final projectFolder = HotKey(
     label: 'Project Folder Navigation',
     description:
@@ -93,6 +108,11 @@ final suggestAction = HotKey(
         'Like "do the right thing," it will bring up a menu of options',
     keyName: 'Space',
     control: true);
+final syncFromGit = HotKey(
+    label: 'Sync from Git',
+    description: 'Once git is set up, sync your files with the repository',
+    keyName: 'Key T',
+    meta: true);
 final tabNavigation = HotKey(
     label: 'Tab Navigation',
     description:
@@ -101,18 +121,22 @@ final tabNavigation = HotKey(
     control: true);
 
 final List<HotKey> listOfHotKeys = [
-  commitCode,
-  completeStatement,
-  doTheRightThing,
-  expandEditor,
-  fileNavigation,
-  formatCode,
-  getDocumentation,
-  navigateErrors,
-  refactorName,
-  refactorThis,
-  saveAll,
-  selectCodeBlock,
-  suggestAction,
-  tabNavigation,
+  commitCode, //1
+  completeStatement, //2
+  doTheRightThing, //3
+  duplicateLine, //4
+  expandEditor, //5
+  fileNavigation, //6
+  findAllUsages, //7
+  formatCode, //8
+  getDocumentation, //8
+  navigateErrors, //9
+  projectFolder, //10
+  refactorName, //11
+  refactorThis, //12
+  saveAll, //13
+  selectCodeBlock, //14
+  suggestAction, //15
+  syncFromGit, // 16
+  tabNavigation, //17
 ];
