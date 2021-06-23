@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hotkey_flashcards/state/state.dart';
-import 'package:hotkey_flashcards/widgets/get_started_button.dart';
+import 'package:hotkey_flashcards/zzz/get_started_button.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hotkey_flashcards/widgets/my_button.dart';
 
 class GetStarted extends HookWidget {
   const GetStarted({Key? key}) : super(key: key);
@@ -10,6 +11,11 @@ class GetStarted extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final flashCard = useProvider(stateProvider);
+
+    final onClick = () {
+      flashCard.selectHotKey();
+      Navigator.pushReplacementNamed(context, '/flashcards');
+    };
 
     return Scaffold(
       body: RawKeyboardListener(
@@ -29,7 +35,7 @@ class GetStarted extends HookWidget {
               Text('Android Studio',
               style: Theme.of(context).textTheme.subtitle1,),
               /// Excel, VS Code, MS Word, general OS,
-              GetStartedButton(),
+              MyButton(onPressed: onClick, label: 'Get Started'),
 
               /// Will eventually have the option here to change which system you want to test
             ],
@@ -39,3 +45,5 @@ class GetStarted extends HookWidget {
     );
   }
 }
+
+

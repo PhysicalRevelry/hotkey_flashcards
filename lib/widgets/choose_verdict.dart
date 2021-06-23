@@ -15,7 +15,7 @@ class VerdictWidget extends HookWidget {
   Widget build(BuildContext context) {
     final flashCard = useProvider(stateProvider);
     if (!flashCard.isSet){
-      return SizedBox(height: 2);
+      return SizedBox(height: 2); //TODO add comments for the why I did each thing
     }
     if (!flashCard.isRightHotKey(flashCard.target!, flashCard.keyedHotKey)){
       return WrongWidget();

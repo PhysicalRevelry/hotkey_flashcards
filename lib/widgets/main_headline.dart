@@ -9,10 +9,8 @@ class MainHeadline extends HookWidget {
     return Text(
       'Enter Your Hotkey',
       style: Theme.of(context).textTheme.headline1,
-      // TextStyle(
-        // fontWeight: FontWeight.bold,
-        // fontSize: 42,
-      // ),
     );
   }
 }
+
+// TODO take these "specific instances" and make them more generally usable

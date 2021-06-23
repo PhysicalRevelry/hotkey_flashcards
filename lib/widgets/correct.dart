@@ -29,32 +29,10 @@ class CorrectWidget extends HookWidget {
           flashcard.keyNameToDisplayRight(context: context, keyCheck: flashcard.keyedHotKey.meta, displayText: "Option/Command"),
           flashcard.keyNameToDisplayRight(context: context, keyCheck: flashcard.keyedHotKey.shift, displayText: "Shift"),
 
-          // flashcard.keyedHotKey.alt
-          //     ? Text(
-          //         "Alt",
-          //         style: Theme.of(context).textTheme.subtitle1,
-          //       )
-          //     : SizedBox(height: 0),
-          // flashcard.keyedHotKey.control
-          //     ? Text(
-          //         "Control",
-          //         style: Theme.of(context).textTheme.subtitle1,
-          //       )
-          //     : SizedBox(height: 0),
-          // flashcard.keyedHotKey.meta
-          //     ? Text(
-          //         "Option/Command",
-          //         style: Theme.of(context).textTheme.subtitle1,
-          //       )
-          //     : SizedBox(height: 0),
-          // flashcard.keyedHotKey.shift
-          //     ? Text(
-          //         "Shift",
-          //         style: Theme.of(context).textTheme.subtitle1,
-          //       )
-          //     : SizedBox(height: 0),
         ],
       ),
     );
   }
 }
+
+//TODO four lines of keystrokes could be a row widget that shows the keystroke icons as one would read them
