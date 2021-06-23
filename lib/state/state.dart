@@ -58,8 +58,6 @@ class State extends ChangeNotifier {
 
   // Testing the entered key combo against the target combo
   bool isRightHotKey(HotKey target, HotKey test) {
-    // if (test == null || target == null) { //TODO check to make sure this is no longer needed
-    //   return false;
     if (target.keyName != test.keyName) { //removed "else" and } to comment out above
       return false;
     } else if (target.meta != test.meta) {

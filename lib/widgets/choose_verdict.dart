@@ -14,6 +14,7 @@ class VerdictWidget extends HookWidget {
   // once the user attempts a hotkey, show either Correct or Wrong widget
   Widget build(BuildContext context) {
     final flashCard = useProvider(stateProvider);
+    //TODO Now that I'm using expanded on the main screen, do I need this sized box?
     if (!flashCard.isSet){
       return SizedBox(height: 2); //TODO add comments for the why I did each thing
     }
