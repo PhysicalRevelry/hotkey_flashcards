@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hotkey_flashcards/state/state.dart';
-import 'package:hotkey_flashcards/zzz/get_started_button.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hotkey_flashcards/widgets/my_button.dart';
