@@ -4,6 +4,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hotkey_flashcards/widgets/my_button.dart';
 
+//TODO Figure out how to get rid of the BLOOP on keystrokes
+
 class GetStarted extends HookWidget {
   const GetStarted({Key? key}) : super(key: key);
 
