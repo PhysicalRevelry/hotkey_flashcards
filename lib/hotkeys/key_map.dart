@@ -8,7 +8,7 @@ final commentOut = HotKey(
     meta: true);
 final commitCode = HotKey(
     label: 'Commit Code',
-    description: 'Git is already set up and you want to make a commit',
+    description: 'Version Control is already set up and you want to make a commit',
     keyName: 'Key K',
     meta: true);
 final completeStatement = HotKey(
@@ -19,8 +19,7 @@ final completeStatement = HotKey(
     shift: true,
     meta: true);
 final doTheRightThing = HotKey(
-    label: 'jagdp2r!'
-        ' right thing',
+    label: 'Do the right thing',
     description: 'Brings up a list of potential actions',
     keyName: 'Enter',
     meta: true);
@@ -97,6 +96,7 @@ final saveAll = HotKey(
 // final searchEverywhere = HotKey(label: 'Search Everywhere',
 //     description: 'Search everywhere across the IntelliJ IDE',
 //     keyName: '',);
+
 final selectCodeBlock = HotKey(
     label: 'Select a Block of Code',
     description: 'Select a block of code, increasing in scope with repetition',
@@ -119,6 +119,11 @@ final tabNavigation = HotKey(
         'Navigate between open tabs, with more recently used tabs at the top of the list',
     keyName: 'Key E',
     control: true);
+final updateCode = HotKey(
+    label: 'Update Code',
+    description: 'Update your project from version control',
+    keyName: 'Key T',
+    meta: true);
 
 final List<HotKey> listOfHotKeys = [
   commitCode, //1
@@ -139,4 +144,5 @@ final List<HotKey> listOfHotKeys = [
   suggestAction, //15
   syncFromGit, // 16
   tabNavigation, //17
+  updateCode, //18
 ];
