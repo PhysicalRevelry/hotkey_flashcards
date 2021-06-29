@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hotkey_flashcards/state/state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hotkey_flashcards/widgets/display_keystroke.dart';
 
 import 'growing_icon.dart';
 
@@ -28,7 +29,7 @@ class CorrectWidget extends HookWidget {
           flashcard.keyNameToDisplayRight(context: context, keyCheck: flashcard.keyedHotKey.control, displayText: "Control"),
           flashcard.keyNameToDisplayRight(context: context, keyCheck: flashcard.keyedHotKey.meta, displayText: "Option/Command"),
           flashcard.keyNameToDisplayRight(context: context, keyCheck: flashcard.keyedHotKey.shift, displayText: "Shift"),
-
+          DisplayKeystroke(headline: "Correct!", displayKey: flashcard.keyedHotKey),
         ],
       ),
     );

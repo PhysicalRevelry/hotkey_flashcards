@@ -85,6 +85,12 @@ final refactorThis = HotKey(
         'Refactor the element under the caret, for example, safe delete, copy, move, rename, and so on',
     keyName: 'Key T',
     control: true);
+final runProgram = HotKey(
+    label: 'Run',
+    description:
+        'Run your code',
+    keyName: 'F9',
+    control: true);
 final saveAll = HotKey(
     label: 'Save',
     description: 'Save everything you\'ve done up to that point',
@@ -124,6 +130,11 @@ final updateCode = HotKey(
     description: 'Update your project from version control',
     keyName: 'Key T',
     meta: true);
+final vcsMenu = HotKey(
+    label: 'Version Control Menu',
+    description: 'Pops up the version control menu',
+    keyName: 'Key V',
+    control: true);
 
 final List<HotKey> listOfHotKeys = [
   commitCode, //1
@@ -134,15 +145,17 @@ final List<HotKey> listOfHotKeys = [
   fileNavigation, //6
   findAllUsages, //7
   formatCode, //8
-  getDocumentation, //8
-  navigateErrors, //9
-  projectFolder, //10
-  refactorName, //11
-  refactorThis, //12
-  saveAll, //13
-  selectCodeBlock, //14
-  suggestAction, //15
-  syncFromGit, // 16
-  tabNavigation, //17
-  updateCode, //18
+  getDocumentation, //9
+  navigateErrors, //10
+  projectFolder, //11
+  refactorName, //12
+  refactorThis, //13
+  runProgram, //14
+  saveAll, //15
+  selectCodeBlock, //16
+  suggestAction, //17
+  syncFromGit, // 18
+  tabNavigation, //19
+  updateCode, //20
+  vcsMenu, //21
 ];

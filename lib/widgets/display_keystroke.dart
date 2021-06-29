@@ -1,16 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:hotkey_flashcards/const/keyboard_symbols.dart';
+import 'package:hotkey_flashcards/hotkeys/hotkeys.dart';
+import 'package:hotkey_flashcards/widgets/display_key.dart';
+
+
 
 class DisplayKeystroke extends StatelessWidget {
-  const DisplayKeystroke({Key? key}) : super(key: key);
+  const DisplayKeystroke(
+      {Key? key, required this.headline, required this.displayKey})
+      : super(key: key);
 
-  //TODO what do i need in here to complete constructor?
+  final String headline;
+  final HotKey displayKey;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        //TODO some logic in here to show what icons to display
+        Text(
+          headline,
+          //TODO put some styling in here
+        ),
+        Row(
+          children: [
+             displayKey.control ? DisplayKey(keyType: KeyboardSymbols.control,): Text(''),
+             displayKey.alt ? DisplayKey(keyType: KeyboardSymbols.alt): Text(''),
+             displayKey.meta ? DisplayKey(keyType: KeyboardSymbols.option): Text(''),
+             displayKey.shift ? DisplayKey(keyType: KeyboardSymbols.shift): Text(''),
+            Text(displayKey.keyName, style: Theme.of(context).textTheme.bodyText1),
+          ],
+        ),
       ],
     );
   }
 }
+
