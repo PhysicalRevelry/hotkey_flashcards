@@ -95,14 +95,7 @@ final saveAll = HotKey(
     label: 'Save',
     description: 'Save everything you\'ve done up to that point',
     keyName: 'Key S',
-    control: true);
-
-/// Search Everywhere is a double shift, not sure how to even code that!
-/// But it's such a cool shortcut to have!
-// final searchEverywhere = HotKey(label: 'Search Everywhere',
-//     description: 'Search everywhere across the IntelliJ IDE',
-//     keyName: '',);
-
+    meta: true);
 final selectCodeBlock = HotKey(
     label: 'Select a Block of Code',
     description: 'Select a block of code, increasing in scope with repetition',

@@ -20,15 +20,16 @@ class DisplayKeystroke extends StatelessWidget {
       children: [
         Text(
           headline,
-          //TODO put some styling in here
+          style: Theme.of(context).textTheme.headline1,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
              displayKey.control ? DisplayKey(keyType: KeyboardSymbols.control,): Text(''),
              displayKey.alt ? DisplayKey(keyType: KeyboardSymbols.alt): Text(''),
              displayKey.meta ? DisplayKey(keyType: KeyboardSymbols.option): Text(''),
              displayKey.shift ? DisplayKey(keyType: KeyboardSymbols.shift): Text(''),
-            Text(displayKey.keyName, style: Theme.of(context).textTheme.bodyText1),
+            Text(displayKey.keyName, style: Theme.of(context).textTheme.subtitle1),
           ],
         ),
       ],

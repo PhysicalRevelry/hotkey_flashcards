@@ -14,7 +14,9 @@ class GetStarted extends HookWidget {
     final flashCard = useProvider(stateProvider);
 
     final onClick = () {
-      Navigator.pushReplacementNamed(context, "/flashcards");
+      Navigator.pushReplacementNamed(context, '/flashcards');
+      // Navigator.of(context).pushReplacementNamed('/flashcards');
+      print("Button Pressed");
       flashCard.selectHotKey();
     };
 

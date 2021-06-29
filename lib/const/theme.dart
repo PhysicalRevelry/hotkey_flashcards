@@ -17,6 +17,11 @@ final ThemeData customTheme = ThemeData(
       fontSize: 35,
       color: Colors.black54,
     ),
+    subtitle2: TextStyle(
+      fontFamily: 'josephineSans',
+      fontSize: 45,
+      color: Colors.black54,
+    ),
     bodyText1: TextStyle(
       fontFamily: 'roboto',
       fontSize: 20,

@@ -8,6 +8,6 @@ class DisplayKey extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text("$keyType + ",
-    style: Theme.of(context).textTheme.bodyText1,);
+    style: Theme.of(context).textTheme.subtitle1,);
   }
 }
