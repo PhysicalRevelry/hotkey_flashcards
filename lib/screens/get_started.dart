@@ -22,7 +22,7 @@ class GetStarted extends HookWidget {
 
     return Scaffold(
       body: RawKeyboardListener(
-        focusNode: flashCard.startNode,
+        focusNode: flashCard.textNode,
         autofocus: true,
         onKey: (key) {
           flashCard.getStarted(key, context);

@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hotkey_flashcards/widgets/choose_verdict.dart';
 import 'package:hotkey_flashcards/widgets/display_target.dart';
+import 'package:hotkey_flashcards/widgets/keystroke_listener.dart';
 import 'package:hotkey_flashcards/widgets/main_headline.dart';
 
 class FlashCards extends HookWidget {
@@ -16,31 +17,29 @@ class FlashCards extends HookWidget {
       appBar: AppBar(
         title: Text('Keyboard Shortcut Flashcards'),
       ),
-      body: RawKeyboardListener(
-        focusNode: flashCard.textNode,
-        autofocus: true,
-        onKey: (key) {
-          flashCard.handleKey(key);
-        },
-        child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 100),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Center(child: MainHeadline()),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: DisplayTarget(),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: VerdictWidget(),
-                ),
-              ],
+      body: KeystrokeListener(
+        child: RawKeyboardListener(
+          focusNode: flashCard.textNode,
+          child: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 100),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Center(child: MainHeadline()),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: DisplayTarget(),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: VerdictWidget(),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

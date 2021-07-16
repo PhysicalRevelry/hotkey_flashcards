@@ -14,8 +14,7 @@ final stateProvider = ChangeNotifierProvider<State>((ref) {
 });
 
 class State extends ChangeNotifier {
-  FocusNode textNode = FocusNode();
-  FocusNode startNode = FocusNode();
+  FocusNode textNode = FocusNode(onKey: (node, event) => true);
   late HotKey? target;
   HotKey keyedHotKey = HotKey(label: "", description: "", keyName: "");
   bool isSet = false;
@@ -30,7 +29,7 @@ class State extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Parsing the keystrokes
+  // Parsing the keystrokes in the game
   handleKey(RawKeyEvent key) {
     if (key.runtimeType != RawKeyUpEvent) {
       return;
@@ -47,12 +46,7 @@ class State extends ChangeNotifier {
     } else {
       return;
     }
-    print("You got your test hot key right here: ${keyedHotKey.label}, "
-        "\n debug name: ${keyedHotKey.keyName} "
-        "\n is alt pressed? ${keyedHotKey.alt} "
-        "\n is control pressed? ${keyedHotKey.control} "
-        "\n is meta pressed? ${keyedHotKey.meta}"
-        "\n is shift pressed? ${keyedHotKey.shift}");
+
     return keyedHotKey;
   }
 
@@ -73,7 +67,7 @@ class State extends ChangeNotifier {
     }
   }
 
-  //
+  // Listens for the Enter key to be hit to advance to next page
   getStarted(RawKeyEvent key, BuildContext context) {
     if (key.runtimeType != RawKeyUpEvent) {
       return;
