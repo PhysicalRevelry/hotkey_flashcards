@@ -1,5 +1,12 @@
+import 'package:flutter/cupertino.dart';
+
 import 'hotkeys.dart';
 
+final build = HotKey(
+    label: 'Build Command',
+    description: 'Builds and runs your program',
+    keyName: 'Kay R',
+    control: true);
 final commentOut = HotKey(
     label: 'Comment Out Line',
     description:
@@ -8,7 +15,8 @@ final commentOut = HotKey(
     meta: true);
 final commitCode = HotKey(
     label: 'Commit Code',
-    description: 'Version Control is already set up and you want to make a commit',
+    description:
+        'Version Control is already set up and you want to make a commit',
     keyName: 'Key K',
     meta: true);
 final completeStatement = HotKey(
@@ -17,6 +25,13 @@ final completeStatement = HotKey(
         'Can finish your statement such as putting the final semicolon or even finishing the syntax for a for loop or if statement',
     keyName: "Enter",
     shift: true,
+    meta: true);
+final copy = HotKey(
+    label: 'Copy', description: 'Copy selection', keyName: "Key C", meta: true);
+final cutLine = HotKey(
+    label: 'Cut Line',
+    description: 'Cut out the line where cursor is, saves content in clipboard',
+    keyName: "Key X",
     meta: true);
 final doTheRightThing = HotKey(
     label: 'Do the right thing',
@@ -62,6 +77,11 @@ final navigateErrors = HotKey(
     label: 'Navigate Errors',
     description: 'Navigate between errors in a file',
     keyName: 'F2');
+final paste = HotKey(
+    label: 'Paste',
+    description: 'Inserts content saved in clipboard',
+    keyName: 'Key V',
+    meta: true);
 final preferences = HotKey(
     label: 'Preferences',
     description: 'Opens the preferences menu',
@@ -86,11 +106,7 @@ final refactorThis = HotKey(
     keyName: 'Key T',
     control: true);
 final runProgram = HotKey(
-    label: 'Run',
-    description:
-        'Run your code',
-    keyName: 'F9',
-    control: true);
+    label: 'Run', description: 'Run your code', keyName: 'F9', control: true);
 final saveAll = HotKey(
     label: 'Save',
     description: 'Save everything you\'ve done up to that point',
@@ -130,8 +146,11 @@ final vcsMenu = HotKey(
     control: true);
 
 final List<HotKey> listOfHotKeys = [
+  build, //22
   commitCode, //1
   completeStatement, //2
+  copy, //23
+  cutLine, //24
   doTheRightThing, //3
   duplicateLine, //4
   expandEditor, //5
@@ -140,6 +159,7 @@ final List<HotKey> listOfHotKeys = [
   formatCode, //8
   getDocumentation, //9
   navigateErrors, //10
+  paste, //25
   projectFolder, //11
   refactorName, //12
   refactorThis, //13
