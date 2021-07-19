@@ -18,6 +18,7 @@ class FlashCards extends HookWidget {
         title: Text('Keyboard Shortcut Flashcards'),
       ),
       body: KeystrokeListener(
+        onKey: flashCard.onKey,
         child: RawKeyboardListener(
           focusNode: flashCard.textNode,
           child: SafeArea(

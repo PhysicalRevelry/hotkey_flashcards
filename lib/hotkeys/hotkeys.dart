@@ -1,4 +1,7 @@
 
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 class HotKey {
   final String label;
   final String description;
@@ -17,6 +20,7 @@ class HotKey {
     this.meta = false,
     this.shift = false,
   });
+
 
   @override
   bool operator ==(Object? that){
