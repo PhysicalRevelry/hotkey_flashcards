@@ -20,6 +20,7 @@ class State extends ChangeNotifier {
   bool isSet = false;
 
   // returning a random HotKey to test from the list. Currently cast as a string.
+  /// HOTKEY class?
   selectHotKey() {
     var rand = Random();
     HotKey newKeyToTest = listOfHotKeys[rand.nextInt(listOfHotKeys.length)];
@@ -28,7 +29,7 @@ class State extends ChangeNotifier {
     target = newKeyToTest;
     notifyListeners();
   }
-
+  /// Stay here
   // Parsing the keystrokes in the game
   handleKey(RawKeyEvent key) {
     if (key.runtimeType != RawKeyUpEvent) {
@@ -48,23 +49,6 @@ class State extends ChangeNotifier {
     }
 
     return keyedHotKey;
-  }
-
-  // Testing the entered key combo against the target combo
-  bool isRightHotKey(HotKey target, HotKey test) {
-    if (target.keyName != test.keyName) { //removed "else" and } to comment out above
-      return false;
-    } else if (target.meta != test.meta) {
-      return false;
-    } else if (target.control != test.control) {
-      return false;
-    } else if (target.alt != test.alt) {
-      return false;
-    } else if (target.shift != test.shift) {
-      return false;
-    } else {
-      return true;
-    }
   }
 
   // Listens for the Enter key to be hit to advance to next page
@@ -93,6 +77,7 @@ class State extends ChangeNotifier {
     return testHotKey;
   }
 
+  /// HOTKEY class?
   bool isMetaKey(String? key) {
     switch (key) {
       case "Meta Right":
@@ -140,6 +125,7 @@ class State extends ChangeNotifier {
     });
   }
 
+  /// Brand new class? Class DisplayWidget Handler?
   Widget keyNameToDisplayWrong(
       {required BuildContext context, required bool keyCheck, required String displayText}){
     if (keyCheck){
@@ -152,6 +138,7 @@ class State extends ChangeNotifier {
     }
   }
 
+  /// Brand new class? Class DisplayWidget Handler?
   Widget keyNameToDisplayRight(
       {required BuildContext context, required bool keyCheck, required String displayText}){
     if (keyCheck){

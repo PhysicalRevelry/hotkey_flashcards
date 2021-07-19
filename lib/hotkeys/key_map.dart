@@ -5,7 +5,7 @@ import 'hotkeys.dart';
 final build = HotKey(
     label: 'Build Command',
     description: 'Builds and runs your program',
-    keyName: 'Kay R',
+    keyName: 'Key R',
     control: true);
 final commentOut = HotKey(
     label: 'Comment Out Line',

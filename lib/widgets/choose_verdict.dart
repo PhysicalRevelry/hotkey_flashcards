@@ -19,7 +19,7 @@ class VerdictWidget extends HookWidget {
     if (!flashCard.isSet) {
       return Container();
     }
-    if (!flashCard.isRightHotKey(flashCard.target!, flashCard.keyedHotKey)) {
+    if (flashCard.target! != flashCard.keyedHotKey) {
       return WrongWidget();
     }
     return CorrectWidget();
