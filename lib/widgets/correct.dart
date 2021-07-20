@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:hotkey_flashcards/state/state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -14,6 +16,8 @@ class CorrectWidget extends HookWidget {
     final flashcard = useProvider(stateProvider);
 
     flashcard.exchangeWidget();
+
+
     return Container(
       child: Column(
         children: [
@@ -25,7 +29,8 @@ class CorrectWidget extends HookWidget {
         ],
       ),
     );
+
   }
+
 }
 
-//TODO four lines of keystrokes could be a row widget that shows the keystroke icons as one would read them

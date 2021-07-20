@@ -1,12 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hotkey_flashcards/hotkeys/hotkeys.dart';
 import 'dart:math';
-import 'package:flutter/services.dart';
-
 import 'package:hotkey_flashcards/hotkeys/key_map.dart';
 
 final stateProvider = ChangeNotifierProvider<State>((ref) {
@@ -35,20 +32,6 @@ class State extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Listens for the Enter key to be hit to advance to next page
-  getStarted(RawKeyEvent key, BuildContext context) {
-    if (key.runtimeType != RawKeyUpEvent) {
-      return;
-    }
-
-    final event = key.data as RawKeyEventDataMacOs;
-    if (event.physicalKey.debugName == "Enter" ||
-        event.physicalKey.debugName == "Numpad Enter") {
-      Navigator.pushReplacementNamed(context, "/flashcards");
-    }
-    selectHotKey();
-  }
-
   late Timer timer;
   exchangeWidget() {
     timer = Timer(const Duration(seconds: 3), () {
@@ -56,32 +39,6 @@ class State extends ChangeNotifier {
       keyedHotKey = HotKey(label: '', description: '', keyName: '');
       isSet = false;
     });
-  }
-
-  /// Brand new class? Class DisplayWidget Handler?
-  Widget keyNameToDisplayWrong(
-      {required BuildContext context, required bool keyCheck, required String displayText}){
-    if (keyCheck){
-      return Text(
-        displayText,
-        style: Theme.of(context).textTheme.bodyText1,
-      );
-    } else {
-      return SizedBox(height: 0);
-    }
-  }
-
-  /// Brand new class? Class DisplayWidget Handler?
-  Widget keyNameToDisplayRight(
-      {required BuildContext context, required bool keyCheck, required String displayText}){
-    if (keyCheck){
-      return Text(
-        displayText,
-        style: Theme.of(context).textTheme.subtitle1,
-      );
-    } else {
-      return SizedBox(height: 0);
-    }
   }
 
 }
