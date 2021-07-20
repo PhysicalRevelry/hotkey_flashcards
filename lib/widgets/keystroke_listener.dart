@@ -21,15 +21,15 @@ class KeystrokeListener extends HookWidget {
           if (event.data is! RawKeyEventDataMacOs) {
             return true;
           }
-          final data = event.data as RawKeyEventDataMacOs;
 
-          if (!isMetaKey(data.physicalKey.debugName)) {
-            final hotKey = createTestHotKey(data);
-            onKey(hotKey);
-            return false;
+          final data = event.data as RawKeyEventDataMacOs;
+          if (isMetaKey(data.physicalKey.debugName)) {
+            return true;
           }
 
-          return true;
+          final hotKey = createTestHotKey(data);
+          onKey(hotKey);
+          return false;
         },
         child: child,
       ),

@@ -1,7 +1,4 @@
 
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
 class HotKey {
   final String label;
   final String description;
