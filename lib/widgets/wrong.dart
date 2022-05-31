@@ -5,12 +5,12 @@ import 'package:hotkey_flashcards/state/state.dart';
 import 'package:hotkey_flashcards/widgets/display_keystroke.dart';
 import 'package:hotkey_flashcards/widgets/growing_icon.dart';
 
-class WrongWidget extends HookWidget {
+class WrongWidget extends HookConsumerWidget {
   const WrongWidget({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final flashcard = useProvider(stateProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final flashcard = ref.watch(stateProvider);
     return Container(
       child: Column(
         children: [

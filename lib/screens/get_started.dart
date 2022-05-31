@@ -7,12 +7,12 @@ import 'package:hotkey_flashcards/widgets/my_button.dart';
 
 //TODO Figure out how to get rid of the BLOOP on keystrokes
 
-class GetStarted extends HookWidget {
+class GetStarted extends HookConsumerWidget {
   const GetStarted({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final flashCard = useProvider(stateProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final flashCard = ref.watch(stateProvider);
 
     final onClick = () {
       Navigator.pushReplacementNamed(context, '/flashcards');
@@ -28,7 +28,7 @@ class GetStarted extends HookWidget {
             Navigator.pushReplacementNamed(context, "/flashcards");
             flashCard.selectHotKey();
           }
-        } ,
+        },
         child: RawKeyboardListener(
           focusNode: flashCard.textNode,
           autofocus: true,
@@ -36,14 +36,21 @@ class GetStarted extends HookWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text('Test Your Keyboard Shortcuts Knowledge',
-                style: Theme.of(context).textTheme.headline1, textAlign: TextAlign.center,),
-                Text('for',
-                style: Theme.of(context).textTheme.bodyText1),
-                Text('Android Studio',
-                style: Theme.of(context).textTheme.subtitle1,),
+                Text(
+                  'Test Your Keyboard Shortcuts Knowledge',
+                  style: Theme.of(context).textTheme.headline1,
+                  textAlign: TextAlign.center,
+                ),
+                Text('for', style: Theme.of(context).textTheme.bodyText1),
+                Text(
+                  'Android Studio',
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
+
                 /// Excel, VS Code, MS Word, general OS,
-                MyButton(onPressed: onClick, label: 'Get Started'),
+                Tooltip(
+                    message: 'Press Enter to Begin',
+                    child: MyButton(onPressed: onClick, label: 'Get Started')),
 
                 /// Will eventually have the option here to change which system you want to test
               ],
@@ -54,5 +61,3 @@ class GetStarted extends HookWidget {
     );
   }
 }
-
-

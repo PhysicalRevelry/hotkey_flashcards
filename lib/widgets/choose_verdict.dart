@@ -6,14 +6,14 @@ import 'package:hotkey_flashcards/widgets/wrong.dart';
 
 import 'correct.dart';
 
-class VerdictWidget extends HookWidget {
+class VerdictWidget extends HookConsumerWidget {
   const VerdictWidget({Key? key}) : super(key: key);
 
   @override
   // if the user hasn't attempted a hotkey yet, show the empty widget
   // once the user attempts a hotkey, show either Correct or Wrong widget
-  Widget build(BuildContext context) {
-    final flashCard = useProvider(stateProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final flashCard = ref.watch(stateProvider);
     // If no attempt has been made, the empty container is a placeholder
     // Without this, the empty keyedHotKey would be displayed
     if (!flashCard.isSet) {

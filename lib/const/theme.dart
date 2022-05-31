@@ -14,7 +14,7 @@ final ThemeData customTheme = ThemeData(
     ),
     subtitle1: TextStyle(
       fontFamily: 'josephineSans',
-      fontSize: 35,
+      fontSize: 30,
       color: Colors.black54,
     ),
     subtitle2: TextStyle(

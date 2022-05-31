@@ -11,8 +11,9 @@ final stateProvider = ChangeNotifierProvider<State>((ref) {
 });
 
 class State extends ChangeNotifier {
-  FocusNode textNode = FocusNode(onKey: (node, event) => true);
+  FocusNode textNode = FocusNode(onKey: (node, event) => KeyEventResult.ignored);
   late HotKey? target;
+  HotKey? testHotKey;
   HotKey keyedHotKey = HotKey(label: "", description: "", keyName: "");
   bool isSet = false;
 

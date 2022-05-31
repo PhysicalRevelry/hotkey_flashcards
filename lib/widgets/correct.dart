@@ -8,12 +8,12 @@ import 'package:hotkey_flashcards/widgets/display_keystroke.dart';
 
 import 'growing_icon.dart';
 
-class CorrectWidget extends HookWidget {
+class CorrectWidget extends HookConsumerWidget {
   const CorrectWidget({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final flashcard = useProvider(stateProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final flashcard = ref.watch(stateProvider);
 
     flashcard.exchangeWidget();
 

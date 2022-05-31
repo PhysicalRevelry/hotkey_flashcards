@@ -1,4 +1,3 @@
-
 class HotKey {
   final String label;
   final String description;
@@ -18,13 +17,12 @@ class HotKey {
     this.shift = false,
   });
 
-
   @override
-  bool operator ==(Object? that){
-    if (that == null){
+  bool operator ==(Object? that) {
+    if (that == null) {
       return false;
     }
-    if (that is! HotKey){
+    if (that is! HotKey) {
       return false;
     }
     if (this.keyName != that.keyName) {
@@ -41,8 +39,12 @@ class HotKey {
       return true;
     }
   }
-}
 
+  @override
+  String toString() {
+    return "\n--------\nLabel: $label \nDescription: $description \nKeyname: $keyName \nConrol: ${control.toString()} \nAlt: ${alt.toString()} \nMeta: ${meta.toString()}\nShift: ${shift.toString()}\n--------";
+  }
+}
 
 // 1) Create a list of all the keys
 // 2) Pull a key at random from the list

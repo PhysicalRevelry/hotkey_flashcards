@@ -1,75 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hotkey_flashcards/hotkeys/hotkeys.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hotkey_flashcards/state/state.dart';
 
-class KeystrokeListener extends HookWidget {
+class KeystrokeListener extends HookConsumerWidget {
   final Widget child;
 
   final void Function(HotKey value) onKey;
 
   KeystrokeListener({required this.child, required this.onKey});
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final flashcard = ref.watch(stateProvider);
     return FocusScope(
       autofocus: true,
       child: Focus(
         onKey: (data, event) {
-          if (event.runtimeType != RawKeyUpEvent) {
-            return true;
+          if (event.runtimeType == RawKeyUpEvent) {
+            return KeyEventResult.handled;
           }
-          if (event.data is! RawKeyEventDataMacOs) {
-            return true;
+          if (event.runtimeType == RawKeyDownEvent) {
+            flashcard.testHotKey =
+                createTestHotKey(event.data as RawKeyEventDataMacOs);
           }
 
           final data = event.data as RawKeyEventDataMacOs;
-          if (isMetaKey(data.physicalKey.debugName)) {
-            return true;
+
+          if (modifierCheck(data.logicalKey.debugName)) {
+            return KeyEventResult.handled;
           }
 
-          final hotKey = createTestHotKey(data);
-          onKey(hotKey);
-          return false;
+          onKey(flashcard.testHotKey!);
+          return KeyEventResult.handled;
         },
         child: child,
       ),
     );
   }
 
-  bool isMetaKey(String? key) {
-    switch (key) {
-      case "Meta Right":
-        {
-          return true;
-        }
-      case "Meta Left":
-        {
-          return true;
-        }
-      case "Alt Left":
-        {
-          return true;
-        }
-      case "Alt Right":
-        {
-          return true;
-        }
-      case "Control Left":
-        {
-          return true;
-        }
-      case "Control Right":
-        {
-          return true;
-        }
-      case "Shift Right":
-        {
-          return true;
-        }
-      case "Shift Left":
-        {
-          return true;
-        }
+  List<String> modifierKeys = [
+    'Meta Right',
+    'Meta Left',
+    'Alt Left',
+    'Alt Right',
+    'Control Left',
+    'Control Right',
+    'Shift Left',
+    'Shift Right',
+  ];
+
+  bool modifierCheck(String? key){
+    if (modifierKeys.contains(key)){
+      return true;
     }
     return false;
   }
@@ -78,11 +63,12 @@ class KeystrokeListener extends HookWidget {
     HotKey testHotKey = HotKey(
         label: 'Tester',
         description: 'to test against',
-        keyName: event.physicalKey.debugName!,
+        keyName: event.logicalKey.debugName!,
         alt: event.isAltPressed,
         control: event.isControlPressed,
         meta: event.isMetaPressed,
         shift: event.isShiftPressed);
+    // print(testHotKey.toString());
     return testHotKey;
   }
 }

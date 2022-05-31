@@ -7,15 +7,15 @@ import 'package:hotkey_flashcards/widgets/display_target.dart';
 import 'package:hotkey_flashcards/widgets/keystroke_listener.dart';
 import 'package:hotkey_flashcards/widgets/main_headline.dart';
 
-class FlashCards extends HookWidget {
+class FlashCards extends HookConsumerWidget {
   const FlashCards({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final flashCard = useProvider(stateProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final flashCard = ref.watch(stateProvider);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Keyboard Shortcut Flashcards'),
+        title: Text('Enter Your Keyboard Shortcut'),
       ),
       body: KeystrokeListener(
         onKey: (hotkey) => flashCard.onKey(hotkey),
@@ -25,20 +25,15 @@ class FlashCards extends HookWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 100),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: Center(child: MainHeadline()),
-                  ),
                   Expanded(
                     flex: 1,
                     child: DisplayTarget(),
                   ),
                   Expanded(
-                    flex: 2,
-                    child: VerdictWidget(),
-                  ),
+                    flex: 1,
+                      child: VerdictWidget()),
                 ],
               ),
             ),
