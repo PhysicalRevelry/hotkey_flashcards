@@ -18,16 +18,16 @@ class KeystrokeListener extends HookConsumerWidget {
     return FocusScope(
       autofocus: true,
       child: Focus(
-        onKey: (data, event) {
+        onKey: (node, event) {
           if (event.runtimeType == RawKeyUpEvent) {
             return KeyEventResult.handled;
           }
+          final data = event.data as RawKeyEventDataMacOs;
+
           if (event.runtimeType == RawKeyDownEvent) {
             flashcard.testHotKey =
-                createTestHotKey(event.data as RawKeyEventDataMacOs);
+                createTestHotKey(data);
           }
-
-          final data = event.data as RawKeyEventDataMacOs;
 
           if (modifierCheck(data.logicalKey.debugName)) {
             return KeyEventResult.handled;
@@ -41,7 +41,7 @@ class KeystrokeListener extends HookConsumerWidget {
     );
   }
 
-  List<String> modifierKeys = [
+  final List<String> modifierKeys = [
     'Meta Right',
     'Meta Left',
     'Alt Left',
